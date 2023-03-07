@@ -26,11 +26,12 @@ let startEl = document.getElementById('start');
 let resultsEl = document.getElementById('results');
 
 containerInput.style.display='none';
-randomNumber();
+randomNumber(newRandom);
 createInput(containerInput)
 
-let firstInterval = setTimeout(removeNumber,1000);
-let secondInterval = setTimeout(displayInput,1000);
+let firstInterval = setTimeout(removeNumber,10000);
+let secondInterval = setTimeout(displayInput,10000);
+
 
 // evento che salva i valori in input in un array 
 startEl.addEventListener('click',function(){
@@ -43,29 +44,7 @@ startEl.addEventListener('click',function(){
     console.log(userNumber)
     console.log(newRandom)
 
-// for annidato per controllare se i numeri sono uguali
-// let nNumberEquals = 0;
-    for(let i = 0; i < newRandom.length; i++){
-        let number = newRandom[i];
-
-        for(let j=0; j< userNumber.length;j++){
-            let numberUser = userNumber[i];
-            
-            
-            if(newRandom == numberUser ){
-                // nNumberEquals++
-                resultsEl.innerHTML= number
-                console.log('giusti')
-                
-            }else{
-
-                // console.log(number)
-            }
-        }
-        console.log(number)
-    
-    }
-    
+    controlNumber(newRandom,userNumber)
 })
 
 
@@ -77,19 +56,45 @@ startEl.addEventListener('click',function(){
 ///////////////////////////////////////////////////////////////
 
 //confronta quanti e quali numeri sono stati indovinati
-function controlNumber(){
-    
+function controlNumber(arr1,arr2){
+    // for annidato per controllare se i numeri sono uguali
+let nNumberEquals = [];
+for(let i = 0; i < arr1.length; i++){
+    let number = arr1[i];
+
+    for(let j=0; j< arr2.length;j++){
+        let numberUser = arr2[j];
+        
+    console.log(numberUser)
+        
+        if(number == numberUser ){
+            nNumberEquals.push(numberUser)
+            
+            console.log('okay')
+            
+        }
+        
+    }
+    console.log(number)
+
+}
+console.log(nNumberEquals)
+resultsEl.innerHTML=('hai indovinato i numeri; ' + nNumberEquals + '<br> i numeri erano '+ arr1)
+if(nNumberEquals.length==arr1.length){
+    resultsEl.innerHTML=('hai vinto')
+}
+
 }
 
 // crea 5 numeri casuali 
-function randomNumber() {
+function randomNumber(arr1) {
     
     for(let i = 0; i < 5; i++){
-        newRandom.push(Math.floor(Math.random() * (99 - 1 + 1) + 1));
+        arr1.push(Math.floor(Math.random() * (99 - 1 + 1) + 1));
         
     }
-    numberRandom.innerHTML=(newRandom)
-    return newRandom
+    numberRandom.innerHTML=(arr1)
+    return arr1
     
 };
 
