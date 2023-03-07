@@ -19,6 +19,7 @@ Gestire l'inserimento dei numeri tramite 5 input diversi.
 */
 
 newRandom = [];
+let userNumber = [];
 let numberRandom = document.getElementById('number-random');
 let containerInput = document.getElementById('container-input');
 let startEl = document.getElementById('start');
@@ -31,9 +32,14 @@ let firstInterval = setTimeout(removeNumber,1000);
 let secondInterval = setTimeout(displayInput,1000);
 
 startEl.addEventListener('click',function(){
-    let userNumber=[];
-    // userNumber.push(inputEl)
+    userNumber = [];
+
+    for (let i = 0; i < 5; i++) {
+        userNumber.push(document.getElementById(i).value);
+    }
+    
     console.log(userNumber)
+
 
 })
 
@@ -50,8 +56,6 @@ startEl.addEventListener('click',function(){
 
 // crea 5 numeri casuali 
 function randomNumber() {
-    
-    newRandom = [];
     
     for(let i = 0; i < 5; i++){
 
@@ -76,19 +80,21 @@ function displayInput(){
 };
 
 
+//function che crea gli input
 function createInput(container) {
-    let userNumber=[];
-
+    
     for(let i = 0; i < 5; i++){
 
         let inputEl = document.createElement("input");
       
-        inputEl.setAttribute("id" , i);
-        container.append(inputEl);
+        inputEl.setAttribute("id" , +i);
 
-    }
-    return userNumber
+        container.append(inputEl);
+        
+    }    
  
 };
+
+
   
   
