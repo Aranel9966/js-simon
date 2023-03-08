@@ -79,7 +79,7 @@ for(let i = 0; i < arr1.length; i++){
 
 }
 console.log(nNumberEquals)
-resultsEl.innerHTML=('hai indovinato i numeri; ' + nNumberEquals + '<br> i numeri erano '+ arr1)
+resultsEl.innerHTML=('hai indovinato i numeri: ' + nNumberEquals + '<br> i numeri erano: '+ arr1)
 if(nNumberEquals.length==arr1.length){
     resultsEl.innerHTML=('hai vinto')
 }
@@ -106,7 +106,7 @@ function removeNumber(){
 
 //function che fa apparire gli input
 function displayInput(){
-    containerInput.style.display='block'
+    containerInput.style.display='flex'
 
 };
 

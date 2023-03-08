@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: brown;
+    color: white;
+    text-align:center;
+}
+
+main{
+    background-color:crimson;
+    padding: 10px;
+    color: white;
+    text-align:center; 
+}
+
+#container-input{
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
+#start{
+    padding: 5px;
+    border-radius: 5px;
+}
